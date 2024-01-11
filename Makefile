@@ -1,10 +1,8 @@
-#GLOBAL_PYTHON = $(shell py -3.9 -c 'import sys; print(sys.executable)')
-#LOCAL_PYTHON = eval{poetry env info --path}
-#LOCAL_PRE_COMMIT = .\\.venv\\Lib\\site-packages\\pre_commit
 PYTHON_VERSION = '3.11'
 
 setup: venv install
 
+.PHONY: venv
 venv:
 	@echo "Install python with pyenv, define as local and creatte the virtual envirionment..."
 	pyenv install --skip-existing ${PYTHON_VERSION}
@@ -16,7 +14,8 @@ install:
 	@echo "Installing dependencies..."
 	poetry install --no-root --sync
 
-test:
+.PHONY: tests
+tests:
 	@echo "Running tests..."
 	poetry run pytest
 
