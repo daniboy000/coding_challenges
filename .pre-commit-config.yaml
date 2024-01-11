@@ -12,6 +12,11 @@ repos:
       entry: poetry run isort
       language: system
       types: [ file, python ]
+    - id: pytest
+      name: pytest
+      entry: poetry run pytest
+      language: system
+      types: [ file, python ]
 #-   repo: https://github.com/PyCQA/flake8
 #    rev: '7.0.0'
 #    hooks:
