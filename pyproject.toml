@@ -7,6 +7,7 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.11"
+typer = "^0.9.0"
 
 [tool.poetry.group.test.dependencies]
 pytest = "^7.4.4"
@@ -17,6 +18,7 @@ flake8 = "^7.0.0"
 isort = "^5.13.2"
 pre-commit = "^3.6.0"
 pytest-cov = "^4.1.0"
+mypy = "^1.8.0"
 
 [tool.poetry.group.docs.dependencies]
 pydocstyle = "^6.3.0"

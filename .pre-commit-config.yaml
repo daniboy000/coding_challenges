@@ -23,6 +23,12 @@ repos:
       language: system
       types: [ file, python ]
       args: ['--max-line-length=88', '--extend-ignore=E203,E501,W503', '--exclude=.venv']
+    - id: mypy
+      name: mypy
+      entry: poetry run mypy coding_challenges
+      language: system
+      types: [ file, python ]
+      args: [--strict, --ignore-missing-imports]
 #-   repo: https://github.com/kynan/nbstripout
 #    rev: '0.6.1'
 #    hooks:
