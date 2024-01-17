@@ -1,4 +1,10 @@
-from coding_challenges.word_count.wc import calc_word_count, get_file_size
+from coding_challenges.word_count.wc import (
+    calc_word_count,
+    get_file_size,
+    get_number_of_lines,
+)
+
+FILE_PATH = "tests/test.txt"
 
 
 def test_calc_word_count():
@@ -12,4 +18,8 @@ def test_get_file_size():
     """
     Test the get_file_size function.
     """
-    assert get_file_size("tests/test.txt") == 342190
+    assert get_file_size(FILE_PATH) == 342190
+
+
+def test_get_number_of_lines():
+    assert get_number_of_lines(FILE_PATH) == 7145
