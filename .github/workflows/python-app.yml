@@ -18,32 +18,32 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Set up Python 3.11
-      uses: actions/setup-python@v3
-      with:
-        python-version: "3.11"
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.11"
 
-    - name: Check out repository
-    - uses: actions/checkout@v3
-        
-    - name: Install Poetry    
-      uses: snok/install-poetry@v1
-      with:
-        virtualenvs-in-project: true
-        
-    - name: Load cached venv
-      id: cached-poetry-dependencies
-      uses: actions/cache@v2
-      with:
-        path: .venv
-        key: venv-${{ hashFiles('**/poetry.lock') }}
-        
-    - name: Install dependencies
-      if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
-      run: poetry install --no-interaction
-        
-    - name: Lint
-      run: poetry run make lint
+      - name: Check out repository
+        uses: actions/checkout@v3
 
-    - name: Run tests
-      run: poetry run make test
+      - name: Install Poetry
+        uses: snok/install-poetry@v1
+        with:
+          virtualenvs-in-project: true
+
+      - name: Load cached venv
+        id: cached-poetry-dependencies
+        uses: actions/cache@v2
+        with:
+          path: .venv
+          key: venv-${{ hashFiles('**/poetry.lock') }}
+
+      - name: Install dependencies
+        if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
+        run: poetry install --no-interaction
+
+      - name: Lint
+        run: poetry run make lint
+
+      - name: Run tests
+        run: poetry run make test
