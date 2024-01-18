@@ -19,6 +19,16 @@ tests:
 	@echo "Running tests..."
 	poetry run pytest --cov=coding_challenges --cov-report=html --cov-report=term-missing
 
+.PHONY: lint
+lint:
+	@echo "Running black..."
+	poetry run black coding_challenges
+
+.PHONY: mypy
+mypy:
+	@echo "Running mypy..."
+	poetry run mypy coding_challenges
+
 clean:
 	@echo "Cleaning up..."
 	if exist poetry.lock ( del poetry.lock /q /s )
