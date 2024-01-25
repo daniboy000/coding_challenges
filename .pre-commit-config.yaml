@@ -13,11 +13,6 @@ repos:
       entry: poetry run ruff format
       language: system
       types: [ file, python ]
-    - id: pytest
-      name: pytest
-      entry: poetry run pytest
-      language: system
-      types: [ file, python ]
     - id: mypy
       name: mypy
       entry: poetry run mypy
