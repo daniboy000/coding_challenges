@@ -3,6 +3,9 @@ PYTHON_VERSION = '3.11'
 .PHONY: venv
 setup: venv install
 
+.PHONY: lint
+lint: ruff mypy
+
 .PHONY: venv
 venv:
 	@echo "Install python with pyenv, define as local and create the virtual envirionment..."
@@ -19,10 +22,15 @@ tests:
 	@echo "Running tests..."
 	poetry run pytest --cov=coding_challenges --cov-report=html --cov-report=term-missing
 
-.PHONY: lint
-lint:
-	@echo "Running black..."
-	poetry run black coding_challenges
+.PHONY: ruff
+ruff:
+	@echo "Running ruff..."
+	poetry run ruff check coding_challenges
+
+.PHONY: ruff-format
+ruff-format:
+	@echo "Running ruff-formatter..."
+	poetry run ruff format coding_challenges
 
 .PHONY: mypy
 mypy:

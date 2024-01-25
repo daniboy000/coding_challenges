@@ -11,32 +11,21 @@ typer = "^0.9.0"
 
 [tool.poetry.group.test.dependencies]
 pytest = "^7.4.4"
+pytest-mock = "^3.12.0"
 
 [tool.poetry.group.dev.dependencies]
-black = "^23.12.1"
-flake8 = "^7.0.0"
-isort = "^5.13.2"
 pre-commit = "^3.6.0"
 pytest-cov = "^4.1.0"
 mypy = "^1.8.0"
-
-[tool.poetry.group.docs.dependencies]
-pydocstyle = "^6.3.0"
+ruff = "*"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
-[tool.black]
-line-length = 88
-
-[tool.isort]
-profile = 'black'
+[tool.ruff]
+line-length = 100
 
 [tool.mypy]
 ignore_missing_imports = true
 disallow_untyped_defs = true
-
-[tool.pydocstyle]
-convention = "google"
-add-ignore = "D100,D101,D102,D103,D104,D105,D106,D107"
